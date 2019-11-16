@@ -17,7 +17,7 @@ import glog as log
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import global_config
 from lanenet_model import lanenet
 from lanenet_model import lanenet_postprocess
