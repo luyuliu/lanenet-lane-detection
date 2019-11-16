@@ -12,13 +12,14 @@ import argparse
 import glob
 import os
 import os.path as ops
-import time
+import time, sys
 
 import cv2
 import glog as log
 import numpy as np
 import tensorflow as tf
 import tqdm
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import global_config
 from lanenet_model import lanenet
