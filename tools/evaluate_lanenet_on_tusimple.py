@@ -100,7 +100,7 @@ def test_lanenet_batch(src_dir, weights_path, save_dir):
                 log.info('Mean inference time every single image: {:.5f}s'.format(np.mean(avg_time_cost)))
                 avg_time_cost.clear()
 
-            input_image_name = os.path.dirname(image_path)
+            input_image_name = os.path.basename(image_path)
             output_image_dir = save_dir
             os.makedirs(output_image_dir, exist_ok=True)
             output_image_path = ops.join(output_image_dir, input_image_name)
