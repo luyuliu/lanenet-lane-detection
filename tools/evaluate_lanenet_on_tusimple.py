@@ -100,9 +100,8 @@ def test_lanenet_batch(src_dir, weights_path, save_dir):
                 log.info('Mean inference time every single image: {:.5f}s'.format(np.mean(avg_time_cost)))
                 avg_time_cost.clear()
 
-            input_image_dir = ops.split(image_path.split('clips')[1])[0][1:]
-            input_image_name = ops.split(image_path)[1]
-            output_image_dir = ops.join(save_dir, input_image_dir)
+            input_image_name = os.path.dirname(image_path)
+            output_image_dir = save_dir
             os.makedirs(output_image_dir, exist_ok=True)
             output_image_path = ops.join(output_image_dir, input_image_name)
             if ops.exists(output_image_path):
