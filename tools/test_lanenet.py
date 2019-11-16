@@ -10,7 +10,7 @@ test LaneNet model on single image
 """
 import argparse
 import os.path as ops
-import time, sys
+import time, sys, os
 
 import cv2
 import glog as log
