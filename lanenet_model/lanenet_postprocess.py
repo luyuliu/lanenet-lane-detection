@@ -303,7 +303,7 @@ class LaneNetPostProcessor(object):
         return ret
 
     def postprocess(self, binary_seg_result, instance_seg_result=None,
-                    min_area_threshold=100, source_image=None,
+                    min_area_threshold=200, source_image=None,
                     data_source='tusimple'):
         """
 
