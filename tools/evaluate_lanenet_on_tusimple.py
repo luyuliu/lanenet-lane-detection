@@ -80,7 +80,7 @@ def test_lanenet_batch(src_dir, weights_path, save_dir):
 
             image = cv2.imread(image_path, cv2.IMREAD_COLOR)
             image_vis = image
-            image = cv2.resize(image, (512, 256), interpolation=cv2.INTER_LINEAR)
+            image = cv2.resize(image, (256, 512), interpolation=cv2.INTER_LINEAR)
             image = image / 127.5 - 1.0
 
             t_start = time.time()
