@@ -303,7 +303,7 @@ class LaneNetPostProcessor(object):
         return ret
 
     def postprocess(self, binary_seg_result, instance_seg_result=None,
-                    min_area_threshold=200, source_image=None,
+                    min_area_threshold=100, source_image=None,
                     data_source='tusimple'):
         """
 
@@ -347,8 +347,8 @@ class LaneNetPostProcessor(object):
         src_lane_pts = []  # lane pts every single lane
         for lane_index, coords in enumerate(lane_coords):
             if data_source == 'tusimple':
-                tmp_mask = np.zeros(shape=(720, 1280), dtype=np.uint8)
-                tmp_mask[tuple((np.int_(coords[:, 1] * 720 / 256), np.int_(coords[:, 0] * 1280 / 512)))] = 255
+                tmp_mask = np.zeros(shape=(1280, 1280), dtype=np.uint8)
+                tmp_mask[tuple((np.int_(coords[:, 1] * 1280 / 512), np.int_(coords[:, 0] * 1280 / 512)))] = 255
             elif data_source == 'beec_ccd':
                 tmp_mask = np.zeros(shape=(1350, 2448), dtype=np.uint8)
                 tmp_mask[tuple((np.int_(coords[:, 1] * 1350 / 256), np.int_(coords[:, 0] * 2448 / 512)))] = 255
@@ -391,7 +391,7 @@ class LaneNetPostProcessor(object):
             single_lane_pt_x = np.array(single_lane_pts, dtype=np.float32)[:, 0]
             single_lane_pt_y = np.array(single_lane_pts, dtype=np.float32)[:, 1]
             if data_source == 'tusimple':
-                start_plot_y = 240
+                start_plot_y = 0
                 end_plot_y = 720
             elif data_source == 'beec_ccd':
                 start_plot_y = 820

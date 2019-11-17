@@ -53,7 +53,7 @@ def test_lanenet_batch(src_dir, weights_path, save_dir):
 
     os.makedirs(save_dir, exist_ok=True)
 
-    input_tensor = tf.placeholder(dtype=tf.float32, shape=[1, 256, 512, 3], name='input_tensor')
+    input_tensor = tf.placeholder(dtype=tf.float32, shape=[1, 512, 512, 3], name='input_tensor')
 
     net = lanenet.LaneNet(phase='test', net_flag='vgg')
     binary_seg_ret, instance_seg_ret = net.inference(input_tensor=input_tensor, name='lanenet_model')
@@ -80,7 +80,7 @@ def test_lanenet_batch(src_dir, weights_path, save_dir):
 
             image = cv2.imread(image_path, cv2.IMREAD_COLOR)
             image_vis = image
-            image = cv2.resize(image, (512, 256), interpolation=cv2.INTER_LINEAR)
+            image = cv2.resize(image, (512, 512), interpolation=cv2.INTER_LINEAR)
             image = image / 127.5 - 1.0
 
             t_start = time.time()
